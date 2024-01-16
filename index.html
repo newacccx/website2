@@ -3,52 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PDF Sharing</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>PDF Download Page</title>
     <style>
         body {
-            padding: 20px;
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        .folder {
+            margin-bottom: 20px;
+        }
+        .pdf-link {
+            display: block;
+            margin-bottom: 10px;
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <h1 class="my-4">Upload and Share PDF</h1>
+    <h1>PDF Download Page</h1>
 
-        <form id="uploadForm" enctype="multipart/form-data">
-            <div class="form-group">
-                <label for="pdfFile">Select PDF File:</label>
-                <input type="file" class="form-control" name="pdfFile" id="pdfFile" accept=".pdf" required>
-            </div>
-            <button type="button" class="btn btn-primary" onclick="uploadFile()">Upload</button>
-        </form>
-
-        <div id="fileLink" class="mt-4"></div>
+    <div class="folder">
+        <h2>Folder 1</h2>
+        <a class="pdf-link" href="folder1/pdf1.pdf" download>PDF 1</a>
+        <a class="pdf-link" href="folder1/pdf2.pdf" download>PDF 2</a>
+        <a class="pdf-link" href="folder1/pdf3.pdf" download>PDF 3</a>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-    <script>
-        function uploadFile() {
-            var formData = new FormData($("#uploadForm")[0]);
-
-            $.ajax({
-                type: "POST",
-                url: "upload.php",
-                data: formData,
-                contentType: false,
-                processData: false,
-                success: function(response) {
-                    $("#fileLink").html(`<p>Share this link: <a href="${response}" target="_blank">${response}</a></p>`);
-                    Swal.fire("Success", "File uploaded successfully!", "success");
-                },
-                error: function(error) {
-                    Swal.fire("Error", "Error uploading file.", "error");
-                }
-            });
-        }
-    </script>
+    <div class="folder">
+        <h2>Folder 2</h2>
+        <a class="pdf-link" href="folder2/pdf4.pdf" download>PDF 4</a>
+        <a class="pdf-link" href="folder2/pdf5.pdf" download>PDF 5</a>
+        <a class="pdf-link" href="folder2/pdf6.pdf" download>PDF 6</a>
+    </div>
 
 </body>
 </html>
