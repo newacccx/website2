@@ -7,21 +7,42 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 20px;
+            margin: 0;
+            padding: 0;
+            background-image: url('background.jpg'); /* Add your background image URL here */
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
         }
         h1 {
-            color: #333;
+            color: #fff;
+            text-align: center;
         }
         .folder {
-            margin-bottom: 20px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        .folder-icon {
+            display: block;
+            margin: 0 auto;
+            width: 80px; /* Adjust the icon size as needed */
+            height: 80px; /* Adjust the icon size as needed */
+            background-image: url('folder-icon.png'); /* Add your folder icon URL here */
+            background-size: contain;
         }
         .folder-header {
+            text-align: center;
             cursor: pointer;
             color: blue;
+            margin-top: 10px;
         }
         .pdf-list {
             display: none;
-            margin-left: 20px;
+            margin-top: 10px;
         }
         .pdf-link {
             display: block;
@@ -31,9 +52,9 @@
 </head>
 <body>
 
-    <h1>PDF Download Page</h1>
-
     <div class="folder">
+        <div class="folder-icon"></div>
+        <h1>PDF Download Page</h1>
         <h2 class="folder-header">Folder 1</h2>
         <div class="pdf-list">
             <a class="pdf-link" href="folder1/pdf1.pdf" download>PDF 1</a>
@@ -43,6 +64,7 @@
     </div>
 
     <div class="folder">
+        <div class="folder-icon"></div>
         <h2 class="folder-header">Folder 2</h2>
         <div class="pdf-list">
             <a class="pdf-link" href="folder2/pdf4.pdf" download>PDF 4</a>
