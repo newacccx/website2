@@ -15,6 +15,14 @@
         .folder {
             margin-bottom: 20px;
         }
+        .folder-header {
+            cursor: pointer;
+            color: blue;
+        }
+        .pdf-list {
+            display: none;
+            margin-left: 20px;
+        }
         .pdf-link {
             display: block;
             margin-bottom: 10px;
@@ -26,18 +34,35 @@
     <h1>PDF Download Page</h1>
 
     <div class="folder">
-        <h2>Folder 1</h2>
-        <a class="pdf-link" href="folder1/pdf1.pdf" download>PDF 1</a>
-        <a class="pdf-link" href="folder1/pdf2.pdf" download>PDF 2</a>
-        <a class="pdf-link" href="folder1/pdf3.pdf" download>PDF 3</a>
+        <h2 class="folder-header">Folder 1</h2>
+        <div class="pdf-list">
+            <a class="pdf-link" href="folder1/pdf1.pdf" download>PDF 1</a>
+            <a class="pdf-link" href="folder1/pdf2.pdf" download>PDF 2</a>
+            <a class="pdf-link" href="folder1/pdf3.pdf" download>PDF 3</a>
+        </div>
     </div>
 
     <div class="folder">
-        <h2>Folder 2</h2>
-        <a class="pdf-link" href="folder2/pdf4.pdf" download>PDF 4</a>
-        <a class="pdf-link" href="folder2/pdf5.pdf" download>PDF 5</a>
-        <a class="pdf-link" href="folder2/pdf6.pdf" download>PDF 6</a>
+        <h2 class="folder-header">Folder 2</h2>
+        <div class="pdf-list">
+            <a class="pdf-link" href="folder2/pdf4.pdf" download>PDF 4</a>
+            <a class="pdf-link" href="folder2/pdf5.pdf" download>PDF 5</a>
+            <a class="pdf-link" href="folder2/pdf6.pdf" download>PDF 6</a>
+        </div>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var folderHeaders = document.querySelectorAll('.folder-header');
+
+            folderHeaders.forEach(function(header) {
+                header.addEventListener('click', function() {
+                    var pdfList = this.nextElementSibling;
+                    pdfList.style.display = pdfList.style.display === 'none' ? 'block' : 'none';
+                });
+            });
+        });
+    </script>
 
 </body>
 </html>
